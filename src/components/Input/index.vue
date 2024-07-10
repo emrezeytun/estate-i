@@ -95,7 +95,7 @@ export default {
   width: max-content;
   .datetime-input {
     width: 100%;
-    padding: 20px 10px 10px 10px;
+    padding: 16px 10px 2px 10px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;

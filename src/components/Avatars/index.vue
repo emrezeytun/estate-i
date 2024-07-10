@@ -1,7 +1,7 @@
 <template>
   <div class="avatars">
     <Avatar
-      v-for="item in avatarDatas.splice(0, 4)"
+      v-for="item in avatarDatas.splice(0, maxAvatarLength)"
       :key="item.id"
       :backgroundColor="item.fields.color"
       :shortName="getShortName(item)"
@@ -9,7 +9,7 @@
     <Avatar
       v-if="avatarDatas.length > 4"
       key="avatar-length"
-      :shortName="avatarDatas.length"
+      :shortName="'+' + (avatarDatas.length - maxAvatarLength)"
     />
   </div>
 </template>
@@ -311,6 +311,12 @@ export default {
       ],
     };
   },
+  props: {
+    maxAvatarLength: {
+      type: Number,
+      default: 4,
+    },
+  },
   components: {
     Avatar,
   },
@@ -328,7 +334,7 @@ export default {
   align-items: center;
 
   .avatar {
-    margin-right: -10px;
+    margin-right: -6px;
     z-index: 1;
   }
 }

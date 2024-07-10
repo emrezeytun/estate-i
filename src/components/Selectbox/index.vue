@@ -6,10 +6,12 @@
       @change="onChangeData"
       :placeholder="placeholder"
     >
-      <option value="" disabled :selected="!defaultValue">
-        {{ placeholder }}
-      </option>
-      <option v-for="item in selectboxData" :key="item.id" :value="item.id">
+      <option
+        v-for="item in selectboxData"
+        :key="item.id"
+        :value="item.id"
+        :selected="item.selected"
+      >
         {{ item.name }}
       </option>
     </select>
@@ -62,6 +64,7 @@ export default {
     position: relative;
     display: flex;
     flex-direction: column;
+    width: 200px;
     label {
       margin-bottom: 12px;
       font: normal normal bold 14px/20px Inter;
